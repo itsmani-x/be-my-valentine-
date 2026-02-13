@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Valentine 💖</title>
-
 <style>
   body {
     margin: 0;
@@ -64,13 +63,6 @@
     line-height: 1.7;
     font-size: 16px;
   }
-
-  #musicBtn {
-    margin-top: 15px;
-    background: #ff8fa3;
-    color: white;
-    font-size: 14px;
-  }
 </style>
 </head>
 
@@ -84,15 +76,13 @@
     <button id="no" onclick="sayNo()">No 🙃</button>
   </div>
 
-  <button id="musicBtn" onclick="playMusic()">🎵 Play Music</button>
-
   <div id="message">
     Elina, I really love you and I want you to know how much you mean to me. Being with you feels safe, calm, and genuinely real. You understand me in ways I never expected, and with you I can be myself without fear or hesitation. Every little moment with you matters to me, and your presence brings peace to my heart. I don’t need anything perfect — just you. I promise to care for you, respect you, and choose you every day. Having you in my life feels like something I’ve always wished for. 💗
   </div>
 </div>
 
-<audio id="bgMusic" loop>
-  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_5c78f2a7b1.mp3" type="audio/mpeg">
+<audio id="bgMusic" loop preload="auto">
+  <source src="https://cdn.pixabay.com/audio/2023/03/28/audio_1f7c3f8a44.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -104,15 +94,12 @@
   }
 
   function sayYes() {
+    const music = document.getElementById("bgMusic");
+    music.muted = false;
+    music.play().catch(() => {}); // ensures no crash on mobile
     document.querySelector("h1").innerText = "I knew it 💘";
     document.getElementById("buttons").style.display = "none";
-    document.getElementById("musicBtn").style.display = "none";
     document.getElementById("message").style.display = "block";
-    document.getElementById("bgMusic").play();
-  }
-
-  function playMusic() {
-    document.getElementById("bgMusic").play();
   }
 </script>
 
