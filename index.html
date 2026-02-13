@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💖</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(-45deg, #ff758c, #ff7eb3, #fad0c4, #fbc2eb);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .card {
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(12px);
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    max-width: 420px;
+  }
+
+  h1 {
+    color: #ff4d6d;
+    margin-bottom: 20px;
+  }
+
+  button {
+    padding: 14px 28px;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease;
+  }
+
+  #yes {
+    background: #ff4d6d;
+    color: white;
+  }
+
+  #no {
+    background: #e0e0e0;
+  }
+
+  #message {
+    display: none;
+    margin-top: 20px;
+    color: #333;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  #musicBtn {
+    margin-top: 15px;
+    background: #ff8fa3;
+    color: white;
+    font-size: 14px;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Elina, will you be my Valentine? 💕</h1>
+
+  <div id="buttons">
+    <button id="yes" onclick="sayYes()">Yes 💖</button>
+    <button id="no" onclick="sayNo()">No 🙃</button>
+  </div>
+
+  <button id="musicBtn" onclick="playMusic()">🎵 Play Music</button>
+
+  <div id="message">
+    Elina, I really love you and I want you to know how much you mean to me. Being with you feels safe, calm, and genuinely real. You understand me in ways I never expected, and with you I can be myself without fear or hesitation. Every little moment with you matters to me, and your presence brings peace to my heart. I don’t need anything perfect — just you. I promise to care for you, respect you, and choose you every day. Having you in my life feels like something I’ve always wished for. 💗
+  </div>
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_5c78f2a7b1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  let size = 18;
+
+  function sayNo() {
+    size += 12;
+    document.getElementById("yes").style.fontSize = size + "px";
+  }
+
+  function sayYes() {
+    document.querySelector("h1").innerText = "I knew it 💘";
+    document.getElementById("buttons").style.display = "none";
+    document.getElementById("musicBtn").style.display = "none";
+    document.getElementById("message").style.display = "block";
+    document.getElementById("bgMusic").play();
+  }
+
+  function playMusic() {
+    document.getElementById("bgMusic").play();
+  }
+</script>
+
+</body>
+</html>
